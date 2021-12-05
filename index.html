@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Notes-App</title>
+</head>
+
+<body>
+    <main class="main-container">
+
+        <h1>Notes-App</h1>
+
+        <form id="addNoteForm">
+            <label for="note-title-input">Add note title</label>
+            <input type="text" id="noteTitleInput" name="note-title-input">
+            <br>
+            <label for="note-text-input">Add note text</label>
+            <input type="text" id="noteTextInput" name="note-text-input">
+            <br>
+            <button id="addNoteBtn" class="add-note-button">Add note</button>
+        </form>
+
+        <div class="notes-container" id="notesContainer"></div>
+        
+    </main>
+    <script src="uuidv4.js"></script>
+    <script src="functions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
