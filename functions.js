@@ -19,9 +19,7 @@ let addNote = function (title, text) {
         title: noteTitle,
         text: noteText
     })
-
-    reRenderNotes(notes)
-    
+    location.assign(`/edit.html#${id}`)
 }
 
 // Erase old render and rerender notes
@@ -35,6 +33,17 @@ let reRenderNotes = function (array) {
 
 let saveNotes = function (array) {
     localStorage.setItem('notes', JSON.stringify(array))
+}
+
+// Save notes from edit page
+
+let saveNotesFromEdit = function (id, title, text) {
+    let noteToModifyIndex = notes.findIndex(function (note) {
+        return note.id === id
+    })
+    notes[noteToModifyIndex].title = title
+    notes[noteToModifyIndex].text = text
+    saveNotes(notes)
 }
 
 // Fetch notes from localStorage
@@ -87,6 +96,7 @@ let renderNotes = function (array) {
         // Give contents to each element
         noteTitle.textContent = object.title
         readLink.textContent = 'read'
+        readLink.setAttribute('href', `/edit.html#${object.id}`)
         removeBtn.textContent = 'x'
 
         // Add event listener to remove button
